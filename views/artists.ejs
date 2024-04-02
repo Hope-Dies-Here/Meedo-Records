@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/artists.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+		<link
+			rel="stylesheet"
+			href="./library/bootstrap.min.css"
+			type="text/css"
+			media="all"
+		/>
+		<title>Artists</title>
+	</head>
+	<body>
+		<div class="grid">
+			<%- include('./partials/navbar.ejs') -%>
+
+			<div class="artists-hero">
+				<div class="inside-artists-hero">
+					<h3 id="balance" class="artists-hero-text big-hero-text">
+						<span>A</span>
+						<span>R</span>
+						<span>T</span>
+						<span>I</span>
+						<span>S</span>
+						<span>T</span>
+						<span>S</span>
+					</h3>
+					<h3 id="reverse" class="artists-hero-text big-hero-text">
+						<span>A</span>
+						<span>R</span>
+						<span>T</span>
+						<span>I</span>
+						<span>S</span>
+						<span>T</span>
+						<span>S</span>
+					</h3>
+
+					<div class="tabs">
+						<a class="" href="#musical-artists">Musical Artists</a>
+						<a class="" href="#">Director</a>
+						<a class="" href="#">Partnerships</a>
+					</div>
+				</div>
+			</div>
+			<div class="artists-container">
+				<div class="artists-title">
+					<!-- <h1 class="">Artists</h1> -->
+					<div class="search-bar-container">
+						<label for="#search">Search an Artist</label
+						><input
+							type="text"
+							name="search-artist"
+							id="search-artist"
+							value=""
+							placeholder="Enter Artist's Name..."
+						/>
+						<select>
+							<option>Sort</option>
+							<option>Name (a - z)</option>
+							<option>Name️ (z - a)</option>
+							<option>Signed Date (newest)</option>
+							<option>Signed Date (oldest)</option>
+							<option>Album Count (asc)</option>
+							<option>Album Count (dsc)</option>
+						</select>
+					</div>
+				</div>
+				<div class="artists-catagory-title">
+					<h2 class="">Musical Artists</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Praesentium ut ipsa officia voluptatum, quis labore!
+					</p>
+				</div>
+				<div id="musical-artists" class="all-artists-list">
+					<% artists.forEach(artist => { %>
+  					<a href="/artists/<%= artist.name %>" class="album listed-artist">
+  						<img class="artist-image" src="./img/Artists/<%= artist.photo %>" alt="<%= artist.name %>" />
+  						<div class="artists-name"><%= artist.name.split(" ")[0] %></div>
+  					</a>
+					<% }) %>
+				</div>
+				<div class="all-artists-list directors-list">
+					<div class="artists-catagory-title">
+						<h2 class="">Director</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Praesentium ut ipsa officia voluptatum, quis labore!
+						</p>
+					</div>
+					<div class="album listed-artist listed-director">
+						<img class="artist-image" src="./img/mara.jpg" alt="" />
+						<a href="#" class="artists-name">Maranata</a>
+					</div>
+				</div>
+				<!-- <div class="next-prev">
+				  <a href="#">&laquo;</a>
+				  <a href="#">&raquo;</a>
+				</div> -->
+			</div>
+			<%- include('./partials/footer.ejs') -%>
+		</div>
+		<div class="news-contents">
+			<div class="skew-left skew-image">
+				<div class="image">
+					<img class="artist-image" src="./img/Singles/laeke.png" alt="" />
+				</div>
+				<div class="text">
+					<h2>Laeke Released His Debute EP</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione
+						quisquam in sapiente libero iure explicabo autem perferendis iste
+						doloribus ea, rem sit accusantium maxime vitae?
+					</p>
+				</div>
+			</div>
+			<div class="skew-left skew-image">
+				<div class="image">
+					<img class="artist-image" src="./img/Albums/maleda.jpg" alt="" />
+				</div>
+				<div class="text">
+					<h2>Maleda EP, The Most Searched Album In Meedo Records Site</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione
+						quisquam in sapiente libero iure explicabo autem perferendis iste
+						doloribus ea, rem sit accusantium maxime vitae?
+					</p>
+				</div>
+			</div>
+			<div class="skew-image">
+				<div class="text">
+					<h2>Jemberu Demeke</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione
+						quisquam in sapiente libero iure explicabo autem perferendis iste
+						doloribus ea, rem sit accusantium maxime vitae?
+					</p>
+				</div>
+				<div class="image">
+					<div class="">
+						<img
+							class="artist-image"
+							src="./img/Singles/libe komo.png"
+							alt=""
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+		<script
+			src="./library/bootstrap.min.js"
+			type="text/javascript"
+			charset="utf-8"
+		></script>
+		<script
+			src="./library/jquery.js"
+			type="text/javascript"
+			charset="utf-8"
+		></script>
+	</body>
+</html>

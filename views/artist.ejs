@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=1408, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="/library/bootstrap.min.css"
+			type="text/css"
+			media="all"
+		/>
+		<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="/css/artist.css" type="text/css" media="all" />
+		<title>Artist</title>
+		<style>
+		  .top-artist-section{
+		    background-image: url("/img/artists-cover/<%= artist.cover %>");
+		  }
+		</style>
+	</head>
+	<body>
+		<div class="grid">
+			<%- include('./partials/navbar.ejs') -%>
+			<div class="section">
+				<div class="artist-left">
+					<div class="artist-profile-section">
+						<div class="top-artist-section">
+						  <div class="top-artist-contents">
+							  <div class="artists-photo-container">
+								<img
+									class="artist-photo"
+									src="/img/Artists/<%= artist.photo %>"
+									alt=""
+								/>
+								<p class="artist-name"><%= artist.name %></p>
+								<em class="bio"><%= artist.bio %></em>
+							</div>
+							  
+						  </div>
+						  <div class="contact-artist">
+								<img class="square-insta" src="/assets/yutub.png" alt="" />
+								<img class="" src="/assets/facebook.png" alt="" />
+								<img class="square-insta" src="/assets/instagram.png" alt="" />
+								<img class="" src="/assets/spotify.png" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="discography">
+							<div class="overview ">
+								<div>
+								  <span>
+								    <%= songs %>
+								  </span> Song </div>
+								<div>
+								  <span class="">
+								    <%= albums.length %>
+								  </span> Album
+								</div>
+								<div>
+								  <span>
+								    <%= artist.totalSingles %>
+								  </span> Single
+								</div>
+							</div>
+					  
+						<div class="albums-section">
+							<h2 class="discography-title art-page-title">Albums</h2>
+							<div class="discs" id="Albums-Div">
+							<% if(albums.length > 0) {  %>
+							  <% albums.forEach(album => { %>
+  								<div class="disc">
+  									<img
+  										class="disc-art"
+  										src="/img/Albums/<%= album.art %>"
+  										alt=""
+  										data-bs-toggle="modal"
+  										data-bs-target="#exampleModal"
+  									/>
+  									<p class="disc-name" id="album-name-id"><%= album.name %></p>
+  									<p class="disc-artist"><%= artist.name %></p>
+  								</div>
+							  <% }) %>
+							<% } else { %>
+								<div class="disc err-disc" id="eee">
+									<img
+										class="disc-art"
+										src="/img/404.jpg"
+										alt=""
+									/>
+									<p class="disc-name">No Albums Yet ...</p>
+									<p class="disc-artist"></p>
+								</div>
+							<% } %>
+								
+							</div>
+						</div>
+						<div class="singles-section">
+							<h2 class="discography-title art-page-title">
+								Singles & Video Clips
+							</h2>
+							<div class="discs" id="singles">
+							<% if(singles.length > 0) {  %>
+							  <% singles.forEach(single => { %>
+  								<div class="disc" id="Singles-Div">
+  									<img
+  										class="disc-art"
+  										src="/img/Singles/<%= single.art %>"
+  										alt=""
+  										data-bs-toggle="modal"
+  										data-bs-target="#exampleModal"
+  									/>
+  									<p class="disc-name" id="album-name-id"><%= single.name %></p>
+  									<p class="disc-artist"><%= single.artist.name %>
+  									  <% if(single.feat != "") { %>
+  									    <%= `ft. ${single.feat}` %>
+  									  <% } %>
+  									</p>
+  								</div>
+							  <% }) %>
+							<% } else { %>
+								<div class="disc err-disc">
+									<img
+										class="disc-art"
+										src="/img/404.jpg"
+										alt=""
+									/>
+									<p class="disc-name">No Albums Yet ...</p>
+									<p class="disc-artist"></p>
+								</div>
+							<% } %>
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div class="biography">
+					<h2 class="art-page-title">Biography</h2>
+					<div class="biography-text-container">
+						<p class="biography-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
+							vitae officiis deserunt tempora doloribus enim nobis eos fugit
+							architecto temporibus, labore quibusdam iste sapiente recusandae,
+							harum provident sint soluta accusantium in praesentium nihil illum
+							cupiditate odit deleniti! Neque, nulla, fuga. Voluptates sit, quia
+							quibusdam eveniet? Blanditiis ex amet omnis itaque?
+						</p>
+						<p class="biography-text">
+							Facere iure dolor quas neque amet architecto temporibus optio
+							deserunt consectetur incidunt, repellendus. Lorem ipsum dolor sit
+							amet, consectetur adipisicing elit. Facilis rem, eligendi aliquid
+							nobis perspiciatis sequi saepe, ipsum pariatur dolor neque
+							blanditiis ad repudiandae consequatur qui molestiae, iste
+							reiciendis obcaecati placeat quas rerum eius quasi aut veritatis.
+							Esse dolores accusantium eligendi debitis, doloribus quos aperiam
+							nesciunt, qui aspernatur nobis quasi numquam beatae expedita magni
+							voluptas nemo, temporibus natus rerum recusandae mollitia
+							dignissimos aliquam.
+						</p>
+						<p class="biography-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
+							vitae officiis deserunt tempora doloribus enim nobis eos fugit
+							architecto temporibus, labore quibusdam iste sapiente recusandae,
+							harum provident sint soluta accusantium in praesentium nihil illum
+							cupiditate odit deleniti! Neque, nulla, fuga. Voluptates sit, quia
+							quibusdam eveniet? Blanditiis ex amet omnis itaque?
+						</p>
+						<p class="biography-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
+							vitae officiis deserunt tempora doloribus enim nobis eos fugit
+							architecto temporibus, labore quibusdam iste sapiente recusandae,
+							harum provident sint soluta accusantium in praesentium nihil illum
+							cupiditate odit deleniti! Neque, nulla, fuga. Voluptates sit, quia
+							quibusdam eveniet? Blanditiis ex amet omnis itaque?
+						</p>
+					</div>
+				</div>
+			</div>
+			<%- include('./partials/footer.ejs') -%>
+		</div>
+		
+		<!-- Modal -->
+		<div
+			class="modal fade"
+			id="exampleModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Sanqa Souq EP</h1>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<div class="paget">
+							<div id="modal-img-cont">
+								<img
+									class="car-img"
+									src="/img/Albums/sanqa suq.jpg"
+									alt=""
+									id="modal-img"
+								/>
+							</div>
+							<ul class="modal-details">
+								<li>
+									Album Name:
+									<span class="alb-name-span">...</span>
+								</li>
+								<li>Album Artist: <span class="artist-name-span">...</span></li>
+								<li>Featuring: <span class="feat-name-span">...</span></li>
+								<li>Producer <span class="producer-name-span">...</span></li>
+								<li id="tt">
+									Total Tracks: <span class="tracks-span">...</span>
+								</li>
+								<li>Released Date: <span class="released-span">...</span></li>
+							</ul>
+							<p class="ttill-it-load"></p>
+							<div class="panel-group" id="accordion">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<p class="panel-title">
+											<a
+												data-bs-toggle="collapse"
+												data-bs-parent="#accordion"
+												href="#collapseOne"
+											>
+												More Information ...
+											</a>
+										</p>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse in">
+										<div class="panel-body till-it-load">
+											<p class="details-text"></p>
+											<a href="/album-details/Asalafi"> See More... </a>
+											<br /><br />
+											<!-- <a class="text-center" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapseOne">
+          Show Less...
+         </a> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<div class="get-album">
+								<img class="" src="/assets/yutub.png" alt="" />
+								<img class="" src="/assets/spotify.png" alt="" />
+							<img class="" src="/assets/amazon music.png" alt="" />
+								<img class="square-insta" src="/assets/instagram.png" alt="" />
+						</div>
+						<div id="button">
+							<button
+								type="button"
+								class="btn btn-warning"
+								data-bs-dismiss="modal"
+							>
+								Close It
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		
+		
+		<script src="/js/index.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script
+		  src="library/bootstrap.min.js"
+		  type="text/javascript"
+		  charset="utf-8"
+		></script>
+		<script
+		  src="library/jquery.js"
+		  type="text/javascript"
+		  charset="utf-8"
+		></script> -->
+	</body>
+</html>
